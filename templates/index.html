@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smoking Drinking Classification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .submit-button {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Smoking Drinking Classification</h1>
+        <form action="/submit" method="POST">
+            <div class="form-group">
+                <label for="sex">Gender:</label>
+                <select id="sex" name="sex" required>
+                    <option value="0">Male</option>
+                    <option value="1">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+            </div>
+            <div class="form-group">
+                <label for="height">Height(in cm):</label>
+                <input type="number" id="height" name="height" required>
+            </div>
+            <div class="form-group">
+                <label for="weight">Weight(in Kg):</label>
+                <input type="number" id="weight" name="weight" required>
+            </div>
+            <div class="form-group">
+                <label for="waistline">Waistline:</label>
+                <input type="text" id="waistline" name="waistline" required>
+            </div>
+            <div class="form-group">
+                <label for="sight_left">Eye Sight(Left):</label>
+                <input type="text" id="sight_left" name="sight_left" required>
+            </div>
+            <div class="form-group">
+                <label for="sight_right">Eye Sight(Right):</label>
+                <input type="text" id="sight_right" name="sight_right" required>
+            </div>
+            <div class="form-group">
+                <label for="hear_left">Hearing Left:</label>
+                <select id="hear_left" name="hear_left" required>
+                    <option value="1">Normal</option>
+                    <option value="2">Abnormal</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="hear_right">Hearing Right:</label>
+                <select id="hear_right" name="hear_right" required>
+                    <option value="1">Normal</option>
+                    <option value="2">Abnormal</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="sbp">Systolic Blood Pressure[mmHg]:</label>
+                <input type="text" id="sbp" name="sbp" required>
+            </div>
+            <div class="form-group">
+                <label for="dbp">Diastolic Blood Pressure[mmHg]:</label>
+                <input type="text" id="dbp" name="dbp" required>
+            </div>
+            <div class="form-group">
+                <label for="blds">BLDS or FSG(Fasting Blood Glucose)[mg/dL]:</label>
+                <input type="text" id="blds" name="blds" required>
+            </div>
+            <div class="form-group">
+                <label for="tot_chole">Total Cholesterol[mg/dL]:</label>
+                <input type="text" id="tot_chole" name="tot_chole" required>
+            </div>
+            <div class="form-group">
+                <label for="HDL_chole">HDL Cholesterol[mg/dL]:</label>
+                <input type="text" id="HDL_chole" name="HDL_chole" required>
+            </div>
+            <div class="form-group">
+                <label for="LDL_chole">LDL Cholesterol[mg/dL]:</label>
+                <input type="text" id="LDL_chole" name="LDL_chole" required>
+            </div>
+            <div class="form-group">
+                <label for="triglyceride">Triglyceride[mg/dL]:</label>
+                <input type="text" id="triglyceride" name="triglyceride" required>
+            </div>
+            <div class="form-group">
+                <label for="hemoglobin">Hemoglobin[g/dL]:</label>
+                <input type="text" id="hemoglobin" name="hemoglobin" required>
+            </div>
+            <div class="form-group">
+                <label for="urine_protein">Protein in Urine:</label>
+                <select id="urine_protein" name="urine_protein" required>
+                    <option value="1">-</option>
+                    <option value="2">+/-</option>
+                    <option value="3">+1</option>
+                    <option value="4">+2</option>
+                    <option value="5">+3</option>
+                    <option value="6">+4</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="serum_creatinine">Serum(Blood) Creatinine[mg/dL]:</label>
+                <input type="text" id="serum_creatinine" name="serum_creatinine" required>
+            </div>
+            <div class="form-group">
+                <label for="SGOT_AST">SGOT(Glutamate-oxaloacetate transaminase) AST(Aspartate transaminase)[IU/L]:</label>
+                <input type="text" id="SGOT_AST" name="SGOT_AST" required>
+            </div>
+            <div class="form-group">
+                <label for="SGOT_ALT">ALT(Alanine transaminase)[IU/L]:</label>
+                <input type="text" id="SGOT_ALT" name="SGOT_ALT" required>
+            </div>
+            <div class="form-group">
+                <label for="gamma_GTP">y-glutamyl transpeptidase[IU/L]:</label>
+                <input type="text" id="gamma_GTP" name="gamma_GTP" required>
+            </div>
+            <div class="form-group">
+                <label for="SMK_stat_type_cd">Smoking State:</label>
+                <select id="SMK_stat_type_cd" name="SMK_stat_type_cd" required>
+                    <option value="1">Never</option>
+                    <option value="2">Used to smoke but quit</option>
+                    <option value="3">Still smoke</option>
+                </select>
+            </div>
+            <input type="submit" class="submit-button" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
